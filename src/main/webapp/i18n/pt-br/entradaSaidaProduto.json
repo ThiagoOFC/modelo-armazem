@@ -1,0 +1,26 @@
+{
+  "armazemtrabalhoApp": {
+    "entradaSaidaProduto": {
+      "home": {
+        "title": "Entrada Saida Produtos",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Entrada Saida Produto",
+        "createOrEditLabel": "Criar ou editar Entrada Saida Produto",
+        "notFound": "Nenhum Entrada Saida Produto encontrado"
+      },
+      "created": "Um novo Entrada Saida Produto foi criado com o identificador {{ param }}",
+      "updated": "Um Entrada Saida Produto foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Entrada Saida Produto foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Entrada Saida Produto {{ id }}?"
+      },
+      "detail": {
+        "title": "Entrada Saida Produto"
+      },
+      "id": "ID",
+      "quando": "Quando",
+      "quantidade": "Quantidade",
+      "produtoCadastrado": "Produto Cadastrado"
+    }
+  }
+}

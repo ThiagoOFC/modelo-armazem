@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005022907",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "entrada_saida_produto",
+  "fields": [
+    {
+      "fieldName": "quando",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "quantidade",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "EntradaSaidaProduto",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "quando",
+      "otherEntityName": "produtoCadastrado",
+      "relationshipName": "produtoCadastrado",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

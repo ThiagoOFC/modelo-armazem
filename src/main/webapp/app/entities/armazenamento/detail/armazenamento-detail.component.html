@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="armazenamento">
+      <h2 data-cy="armazenamentoDetailsHeading"><span jhiTranslate="armazemtrabalhoApp.armazenamento.detail.title">Armazenamento</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ armazenamento.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.armazenamento.local">Local</span></dt>
+        <dd>
+          <span>{{ armazenamento.local }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.armazenamento.tipoDeArmazenamento">Tipo De Armazenamento</span></dt>
+        <dd>
+          <span>{{ armazenamento.tipoDeArmazenamento }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.armazenamento.endereco">Endereco</span></dt>
+        <dd>
+          <span>{{ armazenamento.endereco }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.armazenamento.produtoCadastrado">Produto Cadastrado</span></dt>
+        <dd>
+          <div *ngIf="armazenamento.produtoCadastrado">
+            <a [routerLink]="['/produto-cadastrado', armazenamento.produtoCadastrado.id, 'view']">{{
+              armazenamento.produtoCadastrado.quando
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/armazenamento', armazenamento.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

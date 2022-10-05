@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005022905",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "produto",
+  "fields": [
+    {
+      "fieldName": "nomeProduto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "altura",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "largura",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "comprimento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "codigoDeBarra",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoDeProduto",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "validade",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Produto",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "quando",
+      "otherEntityName": "produtoCadastrado",
+      "ownerSide": true,
+      "relationshipName": "produtoCadastrado",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

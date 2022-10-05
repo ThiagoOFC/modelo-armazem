@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-entrada-saida-produto-heading"
+        data-cy="EntradaSaidaProdutoCreateUpdateHeading"
+        jhiTranslate="armazemtrabalhoApp.entradaSaidaProduto.home.createOrEditLabel"
+      >
+        Criar ou editar Entrada Saida Produto
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.entradaSaidaProduto.quando" for="field_quando">Quando</label>
+          <div class="d-flex">
+            <input
+              id="field_quando"
+              data-cy="quando"
+              type="datetime-local"
+              class="form-control"
+              name="quando"
+              formControlName="quando"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.entradaSaidaProduto.quantidade" for="field_quantidade"
+            >Quantidade</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="quantidade"
+            id="field_quantidade"
+            data-cy="quantidade"
+            formControlName="quantidade"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.entradaSaidaProduto.produtoCadastrado" for="field_produtoCadastrado"
+            >Produto Cadastrado</label
+          >
+          <select
+            class="form-control"
+            id="field_produtoCadastrado"
+            data-cy="produtoCadastrado"
+            name="produtoCadastrado"
+            formControlName="produtoCadastrado"
+            [compareWith]="compareProdutoCadastrado"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="produtoCadastradoOption" *ngFor="let produtoCadastradoOption of produtoCadastradosSharedCollection">
+              {{ produtoCadastradoOption.quando }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
