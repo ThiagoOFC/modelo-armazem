@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity EntradaSaidaProduto.
+    -->
+    <changeSet id="20221005022907-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="produto_cadastrado_id"
+                                 baseTableName="entrada_saida_produto"
+                                 constraintName="fk_entrada_saida_produto__produto_cadastrado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="produto_cadastrado"/>
+    </changeSet>
+</databaseChangeLog>

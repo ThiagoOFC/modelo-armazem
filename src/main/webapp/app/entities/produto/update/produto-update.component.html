@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-produto-heading" data-cy="ProdutoCreateUpdateHeading" jhiTranslate="armazemtrabalhoApp.produto.home.createOrEditLabel">
+        Criar ou editar Produto
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.nomeProduto" for="field_nomeProduto">Nome Produto</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomeProduto"
+            id="field_nomeProduto"
+            data-cy="nomeProduto"
+            formControlName="nomeProduto"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.altura" for="field_altura">Altura</label>
+          <input type="text" class="form-control" name="altura" id="field_altura" data-cy="altura" formControlName="altura" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.largura" for="field_largura">Largura</label>
+          <input type="text" class="form-control" name="largura" id="field_largura" data-cy="largura" formControlName="largura" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.comprimento" for="field_comprimento">Comprimento</label>
+          <input
+            type="text"
+            class="form-control"
+            name="comprimento"
+            id="field_comprimento"
+            data-cy="comprimento"
+            formControlName="comprimento"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.codigoDeBarra" for="field_codigoDeBarra"
+            >Codigo De Barra</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="codigoDeBarra"
+            id="field_codigoDeBarra"
+            data-cy="codigoDeBarra"
+            formControlName="codigoDeBarra"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.tipoDeProduto" for="field_tipoDeProduto"
+            >Tipo De Produto</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="tipoDeProduto"
+            id="field_tipoDeProduto"
+            data-cy="tipoDeProduto"
+            formControlName="tipoDeProduto"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.validade" for="field_validade">Validade</label>
+          <div class="input-group">
+            <input
+              id="field_validade"
+              data-cy="validade"
+              type="text"
+              class="form-control"
+              name="validade"
+              ngbDatepicker
+              #validadeDp="ngbDatepicker"
+              formControlName="validade"
+            />
+            <button type="button" class="btn btn-secondary" (click)="validadeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="armazemtrabalhoApp.produto.produtoCadastrado" for="field_produtoCadastrado"
+            >Produto Cadastrado</label
+          >
+          <select
+            class="form-control"
+            id="field_produtoCadastrado"
+            data-cy="produtoCadastrado"
+            name="produtoCadastrado"
+            formControlName="produtoCadastrado"
+            [compareWith]="compareProdutoCadastrado"
+          >
+            <option [ngValue]="null"></option>
+            <option [ngValue]="produtoCadastradoOption" *ngFor="let produtoCadastradoOption of produtoCadastradosSharedCollection">
+              {{ produtoCadastradoOption.quando }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

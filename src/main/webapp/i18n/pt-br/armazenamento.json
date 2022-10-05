@@ -1,0 +1,27 @@
+{
+  "armazemtrabalhoApp": {
+    "armazenamento": {
+      "home": {
+        "title": "Armazenamentos",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Armazenamento",
+        "createOrEditLabel": "Criar ou editar Armazenamento",
+        "notFound": "Nenhum Armazenamento encontrado"
+      },
+      "created": "Um novo Armazenamento foi criado com o identificador {{ param }}",
+      "updated": "Um Armazenamento foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Armazenamento foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Armazenamento {{ id }}?"
+      },
+      "detail": {
+        "title": "Armazenamento"
+      },
+      "id": "ID",
+      "local": "Local",
+      "tipoDeArmazenamento": "Tipo De Armazenamento",
+      "endereco": "Endereco",
+      "produtoCadastrado": "Produto Cadastrado"
+    }
+  }
+}

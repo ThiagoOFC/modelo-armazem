@@ -1,0 +1,36 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005022906",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "armazenamento",
+  "fields": [
+    {
+      "fieldName": "local",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tipoDeArmazenamento",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "endereco",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Armazenamento",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityField": "quando",
+      "otherEntityName": "produtoCadastrado",
+      "ownerSide": true,
+      "relationshipName": "produtoCadastrado",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

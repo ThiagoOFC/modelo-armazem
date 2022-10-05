@@ -1,0 +1,25 @@
+{
+  "armazemtrabalhoApp": {
+    "produtoCadastrado": {
+      "home": {
+        "title": "Produto Cadastrados",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Produto Cadastrado",
+        "createOrEditLabel": "Criar ou editar Produto Cadastrado",
+        "notFound": "Nenhum Produto Cadastrado encontrado"
+      },
+      "created": "Um novo Produto Cadastrado foi criado com o identificador {{ param }}",
+      "updated": "Um Produto Cadastrado foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Produto Cadastrado foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Produto Cadastrado {{ id }}?"
+      },
+      "detail": {
+        "title": "Produto Cadastrado"
+      },
+      "id": "ID",
+      "quando": "Quando",
+      "localArmazenado": "Local Armazenado"
+    }
+  }
+}

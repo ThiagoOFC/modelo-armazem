@@ -48,6 +48,10 @@ public class CacheConfiguration {
             createCache(cm, br.ufpa.castanhal.es2.armazem.domain.User.class.getName());
             createCache(cm, br.ufpa.castanhal.es2.armazem.domain.Authority.class.getName());
             createCache(cm, br.ufpa.castanhal.es2.armazem.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.ufpa.castanhal.es2.armazem.domain.Produto.class.getName());
+            createCache(cm, br.ufpa.castanhal.es2.armazem.domain.Armazenamento.class.getName());
+            createCache(cm, br.ufpa.castanhal.es2.armazem.domain.EntradaSaidaProduto.class.getName());
+            createCache(cm, br.ufpa.castanhal.es2.armazem.domain.ProdutoCadastrado.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

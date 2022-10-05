@@ -25,11 +25,7 @@ entity ProdutoCadastrado {
    localArmazenado String
 }
     
-entity Fabricante {
- nome String
- cnpj String
-}
-    
+ 
 relationship OneToOne {
     
     Produto {ProdutoCadastrado (quando)}  to ProdutoCadastrado
@@ -44,7 +40,4 @@ relationship ManyToOne {
 }
  
 
-relationship ManyToMany {
-Fabricante {Produto (nome) } to Produto
 
-}

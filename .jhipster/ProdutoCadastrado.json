@@ -1,0 +1,24 @@
+{
+  "applications": "*",
+  "changelogDate": "20221005022908",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "produto_cadastrado",
+  "fields": [
+    {
+      "fieldName": "quando",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "localArmazenado",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ProdutoCadastrado",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

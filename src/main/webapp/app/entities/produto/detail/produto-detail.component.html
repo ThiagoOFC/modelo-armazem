@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="produto">
+      <h2 data-cy="produtoDetailsHeading"><span jhiTranslate="armazemtrabalhoApp.produto.detail.title">Produto</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">Código</span></dt>
+        <dd>
+          <span>{{ produto.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.nomeProduto">Nome Produto</span></dt>
+        <dd>
+          <span>{{ produto.nomeProduto }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.altura">Altura</span></dt>
+        <dd>
+          <span>{{ produto.altura }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.largura">Largura</span></dt>
+        <dd>
+          <span>{{ produto.largura }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.comprimento">Comprimento</span></dt>
+        <dd>
+          <span>{{ produto.comprimento }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.codigoDeBarra">Codigo De Barra</span></dt>
+        <dd>
+          <span>{{ produto.codigoDeBarra }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.tipoDeProduto">Tipo De Produto</span></dt>
+        <dd>
+          <span>{{ produto.tipoDeProduto }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.validade">Validade</span></dt>
+        <dd>
+          <span>{{ produto.validade | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="armazemtrabalhoApp.produto.produtoCadastrado">Produto Cadastrado</span></dt>
+        <dd>
+          <div *ngIf="produto.produtoCadastrado">
+            <a [routerLink]="['/produto-cadastrado', produto.produtoCadastrado.id, 'view']">{{ produto.produtoCadastrado.quando }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+      </button>
+
+      <button type="button" [routerLink]="['/produto', produto.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

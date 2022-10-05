@@ -1,0 +1,31 @@
+{
+  "armazemtrabalhoApp": {
+    "produto": {
+      "home": {
+        "title": "Produtos",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Produto",
+        "createOrEditLabel": "Criar ou editar Produto",
+        "notFound": "Nenhum Produto encontrado"
+      },
+      "created": "Um novo Produto foi criado com o identificador {{ param }}",
+      "updated": "Um Produto foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Produto foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Produto {{ id }}?"
+      },
+      "detail": {
+        "title": "Produto"
+      },
+      "id": "ID",
+      "nomeProduto": "Nome Produto",
+      "altura": "Altura",
+      "largura": "Largura",
+      "comprimento": "Comprimento",
+      "codigoDeBarra": "Codigo De Barra",
+      "tipoDeProduto": "Tipo De Produto",
+      "validade": "Validade",
+      "produtoCadastrado": "Produto Cadastrado"
+    }
+  }
+}

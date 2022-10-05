@@ -1,0 +1,141 @@
+<div>
+  <h2 id="page-heading" data-cy="ProdutoHeading">
+    <span jhiTranslate="armazemtrabalhoApp.produto.home.title">Produtos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="armazemtrabalhoApp.produto.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-produto"
+        [routerLink]="['/produto/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="armazemtrabalhoApp.produto.home.createLabel"> Criar novo Produto </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="produtos?.length === 0">
+    <span jhiTranslate="armazemtrabalhoApp.produto.home.notFound">Nenhum Produto encontrado</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="produtos && produtos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">Código</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="nomeProduto">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.nomeProduto">Nome Produto</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="altura">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.altura">Altura</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="largura">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.largura">Largura</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="comprimento">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.comprimento">Comprimento</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="codigoDeBarra">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.codigoDeBarra">Codigo De Barra</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="tipoDeProduto">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.tipoDeProduto">Tipo De Produto</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="validade">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.validade">Validade</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="produtoCadastrado.quando">
+            <div class="d-flex">
+              <span jhiTranslate="armazemtrabalhoApp.produto.produtoCadastrado">Produto Cadastrado</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let produto of produtos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/produto', produto.id, 'view']">{{ produto.id }}</a>
+          </td>
+          <td>{{ produto.nomeProduto }}</td>
+          <td>{{ produto.altura }}</td>
+          <td>{{ produto.largura }}</td>
+          <td>{{ produto.comprimento }}</td>
+          <td>{{ produto.codigoDeBarra }}</td>
+          <td>{{ produto.tipoDeProduto }}</td>
+          <td>{{ produto.validade | formatMediumDate }}</td>
+          <td>
+            <div *ngIf="produto.produtoCadastrado">
+              <a [routerLink]="['/produto-cadastrado', produto.produtoCadastrado.id, 'view']">{{ produto.produtoCadastrado.quando }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/produto', produto.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/produto', produto.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+              </button>
+
+              <button type="submit" (click)="delete(produto)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
