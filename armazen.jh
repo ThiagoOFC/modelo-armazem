@@ -1,0 +1,50 @@
+
+entity Produto {
+	nomeProduto String
+    altura String
+    largura String
+    comprimento String
+    codigoDeBarra String
+    tipoDeProduto String
+    validade LocalDate
+}
+entity Armazenamento {
+	local String
+    tipoDeArmazenamento String
+    endereco String
+    
+}
+  
+entity EntradaSaidaProduto {
+	quando ZonedDateTime
+    quantidade String
+
+}
+entity ProdutoCadastrado {
+	quando ZonedDateTime
+   localArmazenado String
+}
+    
+entity Fabricante {
+ nome String
+ cnpj String
+}
+    
+relationship OneToOne {
+    
+    Produto {ProdutoCadastrado (quando)}  to ProdutoCadastrado
+    
+    Armazenamento { ProdutoCadastrado (quando)} to ProdutoCadastrado
+}
+
+relationship ManyToOne {
+    
+    EntradaSaidaProduto { ProdutoCadastrado (quando)} to ProdutoCadastrado 
+    
+}
+ 
+
+relationship ManyToMany {
+Fabricante {Produto (nome) } to Produto
+
+}
